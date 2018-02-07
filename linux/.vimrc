@@ -5,6 +5,8 @@ set spellfile=home/jsmith/googledrive/vim/spell/en.utf-8.add
 set spell
 set sessionoptions+=resize,winpos
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set backupdir=~/.vim/tmp//,.
+set directory=~/.vim/tmp//,.
 if has("gui_running")
   if has("gui_gtk3")
     set guifont=Inconsolata\ 12

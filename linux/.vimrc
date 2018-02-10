@@ -22,6 +22,15 @@ execute pathogen#infect()
 let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
 let NERDTreeShowBookmarks=1
+set nocompatible
+filetype plugin on
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
 function! DisplayColorSchemes()
    let currDir = getcwd()
    exec "cd $VIMRUNTIME/colors"

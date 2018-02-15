@@ -14,6 +14,9 @@ set directory=~/vimfiles/tmp//,.
 set sessionoptions+=resize,winpos
 let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
+nmap <F6> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
 let NERDTreeShowBookmarks=1
 set nocompatible
 filetype plugin on
@@ -77,4 +80,3 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
-

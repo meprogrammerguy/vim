@@ -1,0 +1,80 @@
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+set spelllang=en
+set spellfile=home/jsmith/googledrive/vim/spell/en.utf-8.add
+set spell
+execute pathogen#infect() 
+set diffexpr=MyDiff()
+colo slate 
+syntax on
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set backupdir=~/vimfiles/tmp//,.
+set directory=~/vimfiles/tmp//,.
+set sessionoptions+=resize,winpos
+let g:session_autoload = 'yes'
+let g:session_autosave = 'yes'
+let NERDTreeShowBookmarks=1
+set nocompatible
+filetype plugin on
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
+if has("gui_running")
+  if has("gui_gtk3")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
+function! DisplayColorSchemes()
+   let currDir = getcwd()
+   exec "cd $VIMRUNTIME/colors"
+   for myCol in split(glob("*"), '\n')
+      if myCol =~ '\.vim'
+         let mycol = substitute(myCol, '\.vim', '', '')
+         exec "colorscheme " . mycol
+         exec "redraw!"
+         echo "colorscheme = ". myCol
+         sleep 2
+      endif
+   endfor
+   exec "cd " . currDir
+endfunction
+
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
+

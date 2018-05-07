@@ -1,5 +1,6 @@
 source $VIMRUNTIME/mswin.vim
 behave mswin
+setlocal foldmethod=indent
 set spelllang=en
 set spellfile=home/jsmith/googledrive/vim/spell/en.utf-8.add
 set spell
@@ -27,7 +28,6 @@ let g:session_autosave = 'yes'
 let NERDTreeShowBookmarks=1
 set nocompatible
 filetype plugin on
-setlocal foldmethod=indent
 
 augroup pencil
   autocmd!

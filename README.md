@@ -1,2 +1,2 @@
 # vim
-storing my vim settings
+storing my vim and zsh settings

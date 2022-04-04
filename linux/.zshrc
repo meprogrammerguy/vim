@@ -3,7 +3,7 @@
 autoload -Uz promptinit
 promptinit
 
-# mods last updated by JRS 5/7/2018
+# mods last updated by JRS 4/4/2022
 
 function auto_pipenv_shell {
     if [ ! -n "${PIPENV_ACTIVE+1}" ]; then
@@ -19,18 +19,7 @@ function cd {
 }
 
 prompt clint
-alias prp="pipenv run python"
-xinput set-prop "TPPS/2 IBM TrackPoint" "Device Enabled" 0
-xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
-if [ -d ~/googledrive/books ]; then
-	echo "googledrive is mounted"
-	echo "OneDrive is mounted"
-	echo "folder_daemon is running"
-else
-	google-drive-ocamlfuse ~/googledrive
-	/home/jsmith/goOneDrive.sh
-	/home/jsmith/goFolderDaemon.sh
-fi
+alias prp="pipenv run python3"
 # mods by JRS, end
 
 setopt histignorealldups sharehistory

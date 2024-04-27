@@ -1,0 +1,69 @@
+sudo apt install curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser
+add lastpass, password is: JfbCBDc23t3j
+sudo apt-get update
+sudo apt-get install encfs
+encfs ~/.crypt ~/decode
+sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+sudo usermod -aG nordvpn $USER
+reboot
+nordvpn login
+nordvpn set notify on
+nordvpn set autoconnect on
+nordvpn set ipv6 on
+nordvpn c
+nordvpn set killswitch on
+sudo apt install zsh
+sudo apt install git
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s $(which zsh)
+add keepassXC
+add nordpass
+add tampermonkey extension
+add literotica extension
+sudo apt install gnome-screenshot
+sudo apt install vim-gtk3
+sudo apt install qbittorrent
+sudo apt install ffmpeg
+sudo apt-get install winff
+sudo snap install yt-dlg
+sudo apt install ubuntu-restricted-extras
+for vim
+install pathogen
+bundle vim_pencil
+bundle NERDtree
+
+https://www.vim.org/account/profile.php?user_id=14483
+get from above link
+reload.vim
+session.vim
+vim-misc
+add uBlock Origin to brave
+sudo apt install diodon
+sudo apt install caffeine
+sudo pip3 install pipenv --break-system-packages 
+update Pipfile (python version)
+(delete Pipfile.lock)
+sudo pip3 install (files found in Pipfile)
+git config --global user.name "meprogrammerguy"
+git config --global user.email "b65535@gmail.com"
+sudo apt install python3-tk (for project mark-plumb)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

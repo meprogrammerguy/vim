@@ -63,10 +63,9 @@ https://stackoverflow.com/questions/63661505/git-always-prompts-are-you-sure-you
 git config --global url.ssh://git@github.com
 
 git config --global url.ssh://git@github.com/.insteadOf https://github.com/
-
-
-
-
+===
+sudo apt-get install p7zip-full
+7za a -tzip -p -mem=AES256 backups.zip doc
 
 
 

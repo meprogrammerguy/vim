@@ -51,6 +51,10 @@ sudo pip3 install (files found in Pipfile)
 git config --global user.name "meprogrammerguy"
 git config --global user.email "b65535@gmail.com"
 sudo apt install python3-tk (for project mark-plumb)
+===
+switch github to ssh
+https://stackoverflow.com/questions/57230972/how-to-migrate-from-https-to-ssh-github
+https://stackoverflow.com/questions/63661505/git-always-prompts-are-you-sure-you-want-to-continue-connecting-yes-no-finger
 
 
 

@@ -53,8 +53,17 @@ git config --global user.email "b65535@gmail.com"
 sudo apt install python3-tk (for project mark-plumb)
 ===
 switch github to ssh
+sudo apt-get install xclip
 https://stackoverflow.com/questions/57230972/how-to-migrate-from-https-to-ssh-github
+
+after generating key copy to clipboard like this:
+xclip -sel clip < ~/.ssh/id_rsa.pub
+ 
 https://stackoverflow.com/questions/63661505/git-always-prompts-are-you-sure-you-want-to-continue-connecting-yes-no-finger
+git config --global url.ssh://git@github.com
+
+git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+
 
 
 

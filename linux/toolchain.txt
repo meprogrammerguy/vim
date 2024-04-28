@@ -53,6 +53,8 @@ git config --global user.email "b65535@gmail.com"
 sudo apt install python3-tk (for project mark-plumb)
 ===
 switch github to ssh
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t ed25519 -C "your_email@example.com" (more secure)
 sudo apt-get install xclip
 https://stackoverflow.com/questions/57230972/how-to-migrate-from-https-to-ssh-github
 
@@ -65,7 +67,12 @@ git config --global url.ssh://git@github.com
 git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 ===
 sudo apt-get install p7zip-full
-7za a -tzip -p -mem=AES256 backups.zip doc
+7za a -tzip -p -mem=AES256 backups.zip docs
+7z x backups.zip -p"password"
+===
+book planning
+sudo snap install manuskript
+
 
 
 

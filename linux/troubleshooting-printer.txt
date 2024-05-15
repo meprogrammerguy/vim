@@ -1,0 +1,37 @@
+troubleshooting printer setup
+===
+1) drop the firewall sudo ufw disable
+2) drop the VPN nordvpn d
+3) nordvpn set killswitch off
+4) install the printer drivers
+5) test page print
+6) raise the firewall sudo ufw enable
+7) test print
+8) run the VPN nordvpn d and nordvpn set killswitch on
+9) test print (print is broken)
+10) magical VPN fis was nordvpn set lan-discovery enabled
+11) restart nordvpn
+12) test print
+13) all good!
+===
+nordvpn settings
+==
+nordvpn login
+nordvpn set notify on
+nordvpn set autoconnect on
+nordvpn set ipv6 on
+nordvpn c
+nordvpn set killswitch on
+===
+final fix is picking a DNS server
+==
+sudo passwd root
+rm -r /etc/resolv.conf
+gnome-text-editor /etc/resolv.conf
+enter 2 dns servers
+save
+chattr +i /etc/resolv.conf
+reboot
+
+
+

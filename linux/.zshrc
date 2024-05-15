@@ -1,4 +1,4 @@
-# mods last updated by JRS 4/25/2024
+# mods last updated by JRS 5/15/2024
 
 function auto_pipenv_shell {
     if [ ! -n "${PIPENV_ACTIVE+1}" ]; then
@@ -117,7 +117,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=/usr/bin/python3
-
-# Created by `pipx` on 2024-04-25 20:16:11
-export PATH="$PATH:/home/jsmith/.local/bin"

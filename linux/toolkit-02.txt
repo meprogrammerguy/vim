@@ -1,0 +1,46 @@
+https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/
+add ubuntu to sdb (the ssd drive)
+remove Partition from sda drive (1 TB hdd)
+create new partition on 1TB drive using sudo fdisk
+sudo mkfs -t ext4 /dev/sda1
+sudo mount /dev/sda1 /mnt
+ls -ahl
+sudo rm -rf lost+found
+sudo cp -rp /home/* /mnt
+ls
+sudo mv /home /home.orig
+sudo mkdir /home
+sudo umount /dev/sda1
+sudo mount /dev/sda1 /home/
+df /dev/sda1
+sudo cp /etc/fstab /etc/fstab.orig
+sudo gnome-text-editor /etc/fstab
+add to last line of fstab
+===
+/dev/sda1	/home	ext4	defaults	0	0
+=== save file
+sudo reboot now
+df /dev/sda1
+cd /
+sudo rm -rf home.orig/
+add brave browser
+add lastpass extension
+sudo apt-get install encfs
+encfs ~/.crypt ~/decode
+sudo apt install curl
+sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+sudo usermod -aG nordvpn $USER
+reboot
+nordvpn login
+nordvpn set notify on
+nordvpn set autoconnect on
+nordvpn set ipv6 on
+nordvpn set lan-discovery on
+nordvpn c
+nordvpn set killswitch on
+sudo snap install yt-dlg
+sudo apt install zsh
+sudo apt install git
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s $(which zsh)
+

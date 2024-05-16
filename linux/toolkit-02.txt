@@ -99,12 +99,18 @@ pipx ensurepath
 sudo pipx ensurepath --global # optional to allow pipx actions in global scope. See "Global installation" section below.
 sudo apt-get install timeshift
 ran timeshift here before creating virtual environments
+install vlc from software
+install gimp from software
+install gnote from software
+sudo apt-get install traceroute
+sudo apt-get install mtr
 
-(old way) sudo pip3 install pipenv --break-system-packages (use pipx and try local not global first)
+from home
+pipx install pipenv
 
 update Pipfile (python version)
 (delete Pipfile.lock)
-sudo pip3 install (files found in Pipfile)
+pipenv reinstall
 git config --global user.name "meprogrammerguy"
 git config --global user.email "b65535@gmail.com"
 sudo apt install python3-tk (for project mark-plumb)

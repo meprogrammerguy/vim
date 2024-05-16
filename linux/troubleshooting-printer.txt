@@ -32,6 +32,30 @@ enter 2 dns servers
 save
 chattr +i /etc/resolv.conf
 reboot
-
+===
+nordvpn still is keeping me from printing
+===
+more to figure out
+https://askubuntu.com/questions/1302662/nordvpn-prevents-printing
+turned off lan-discovery
+then added network to whitelist
+then turned back on lan-discovery
+working for now
+check tomorrow after a reboot
+==
+nordvpn settings
+Technology: NORDLYNX
+Firewall: enabled
+Firewall Mark: 0xe1f1
+Routing: enabled
+Analytics: enabled
+Kill Switch: disabled
+Threat Protection Lite: disabled
+Notify: enabled
+Auto-connect: enabled
+IPv6: enabled
+Meshnet: disabled
+DNS: disabled
+LAN Discovery: enabled
 
 

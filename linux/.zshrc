@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-# Set up the prompt
-
-autoload -Uz promptinit
-promptinit
-
-# mods last updated by JRS 4/4/2022
-=======
-# mods last updated by JRS 4/25/2024
->>>>>>> develop
+# mods last updated by JRS 5/15/2024
 
 function auto_pipenv_shell {
     if [ ! -n "${PIPENV_ACTIVE+1}" ]; then
@@ -22,10 +13,6 @@ function cd {
     auto_pipenv_shell
 }
 
-<<<<<<< HEAD
-prompt clint
-=======
->>>>>>> develop
 alias prp="pipenv run python3"
 # mods by JRS, end
 
@@ -130,7 +117,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=/usr/bin/python3
 
-# Created by `pipx` on 2024-04-25 20:16:11
+# Created by `pipx` on 2024-05-16 13:11:08
 export PATH="$PATH:/home/jsmith/.local/bin"

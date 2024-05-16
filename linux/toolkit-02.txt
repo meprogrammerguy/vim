@@ -43,4 +43,69 @@ sudo apt install zsh
 sudo apt install git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 chsh -s $(which zsh)
+git config --global user.email "b65535@gmail.com"
+git config --global user.name "meprogrammerguy"
+ssh-keygen -t ed25519 -C "b65535@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "b65535@gmail.com"
+sudo apt-get install xclip
+xclip -sel clip < ~/.ssh/id_ed25519.pub
+add keys to github
+===
+change to ssh
+git config --global url.ssh://git@github.com
+git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+sudo apt install gnome-screenshot
+sudo apt install vim-gtk3
+sudo apt install qbittorrent
+sudo apt install ffmpeg
+sudo apt-get install winff
+sudo apt install ubuntu-restricted-extras
+add keepassXC			
+add nordpass
+add uBlock Origin to brave
+sudo apt install diodon
+sudo apt install caffeine
+add recoll (file indexer)
+also add all recoll missing helper files
+===
+vim stuff
+install pathogen		
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+cd ~/.vim/bundle
+bundle vim_pencil
+git clone https://github.com/preservim/vim-pencil.git
+bundle NERDtree
+git clone https://github.com/preservim/nerdtree.git
+git clone https://github.com/xolox/vim-session.git
+reload.vim
+git clone https://github.com/xolox/vim-reload.git
+session.vim
+vim-misc
+git clone https://github.com/xolox/vim-misc.git
+==
+book stuff
+sudo apt install manuskript
+install Calibre
+==
+set up git environments
+==
+pipenv setup (careful, install pipx first)
+==
+sudo apt update
+sudo apt install pipx
+pipx ensurepath
+sudo pipx ensurepath --global # optional to allow pipx actions in global scope. See "Global installation" section below.
+sudo apt-get install timeshift
+ran timeshift here before creating virtual environments
+
+(old way) sudo pip3 install pipenv --break-system-packages (use pipx and try local not global first)
+
+update Pipfile (python version)
+(delete Pipfile.lock)
+sudo pip3 install (files found in Pipfile)
+git config --global user.name "meprogrammerguy"
+git config --global user.email "b65535@gmail.com"
+sudo apt install python3-tk (for project mark-plumb)
 

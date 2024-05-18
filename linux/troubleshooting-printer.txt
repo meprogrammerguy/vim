@@ -57,5 +57,26 @@ IPv6: enabled
 Meshnet: disabled
 DNS: disabled
 LAN Discovery: enabled
-
+===
+settings that fixed it!!! (use OpenVPN)
+nordvpn settings
+Technology: OPENVPN
+Protocol: UDP
+Firewall: enabled
+Firewall Mark: 0xe1f1
+Routing: enabled
+Analytics: enabled
+Kill Switch: disabled
+Threat Protection Lite: disabled
+Obfuscate: disabled
+Notify: enabled
+Auto-connect: enabled
+IPv6: enabled
+Meshnet: disabled
+DNS: disabled
+LAN Discovery: enabled
+Allowlisted ports:
+          631 (UDP|TCP)
+         5353 (UDP|TCP)
+undated cups config to be less restrictive (finnally working?)
 

@@ -1,0 +1,4 @@
+plans to do
+1) ssh between windows and linux
+2) samba between windows and linux
+3) set up nordvpn mesh network? (maybe not)

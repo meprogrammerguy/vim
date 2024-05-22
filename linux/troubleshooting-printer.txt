@@ -78,5 +78,5 @@ LAN Discovery: enabled
 Allowlisted ports:
           631 (UDP|TCP)
          5353 (UDP|TCP)
-undated cups config to be less restrictive (finnally working?)
+undated cups config to be less restrictive (finally working?)
 

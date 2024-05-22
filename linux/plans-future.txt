@@ -1,4 +1,7 @@
 plans to do
 1) ssh between windows and linux
+remove passphrase
+sudo ssh-keygen -p 
 2) samba between windows and linux
 3) set up nordvpn mesh network? (maybe not)
+4)research nfc to read my sugar numbers on my pc

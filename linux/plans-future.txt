@@ -5,7 +5,17 @@ sudo ssh-keygen -p
 pscp /home/jsmith/.ssh/id_ed25519.pub jsmith@jsmith-win:/path/destination_file_name.
 ===
 ssh-keygen -f ~/.ssh/ubuntu-ed25519 -t ed25519
-ssh-copy-id -i ~/.ssh/ubuntu-ed25519 jsmith@jsmith-win:1222
+ssh-copy-id -i ~/.ssh/ubuntu-ed25519.pub jsmith@jsmith-win:1222
+===
+sudo snap connect remmina:avahi-observe :avahi-observe # servers discovery
+sudo snap connect remmina:cups-control :cups-control # printing
+sudo snap connect remmina:mount-observe :mount-observe # mount management
+sudo snap connect remmina:password-manager-service :password-manager-service # password manager
+sudo snap connect remmina:audio-playback :audio-playback # audio sharing
+sudo snap connect remmina:audio-record :audio-record # microphone
+
+ssh -4 -p 1222 -i /home/jsmith/snap/remmina/common/.ssh/id_rsa jsmith@jsmith-win  
+(latest: Keys work to windows box)
 ===
 2) samba between windows and linux
 3) set up nordvpn mesh network? (maybe not)

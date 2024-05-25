@@ -16,6 +16,7 @@ sudo snap connect remmina:audio-record :audio-record # microphone
 
 ssh -4 -p 1222 -i /home/jsmith/snap/remmina/common/.ssh/id_rsa jsmith@jsmith-win  
 (latest: Keys work to windows box)
+added pdf file to explain moving keys from linux to windows 
 ===
 2) samba between windows and linux
 3) set up nordvpn mesh network? (maybe not)

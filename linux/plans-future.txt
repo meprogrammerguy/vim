@@ -17,7 +17,13 @@ sudo snap connect remmina:audio-record :audio-record # microphone
 ssh -4 -p 1222 -i /home/jsmith/snap/remmina/common/.ssh/id_rsa jsmith@jsmith-win  
 (latest: Keys work to windows box)
 added pdf file to explain moving keys from linux to windows 
+(remmina data file was set wrong, couldn't find profiles on restart, set to snap folder/remmina)
+made backups of these files
 ===
-2) samba between windows and linux
-3) set up nordvpn mesh network? (maybe not)
-4)research nfc to read my sugar numbers on my pc
+2) set up nordvpn mesh network
+my laptop is: b65535-andes.nord
+my windows is: b65535-olympic.nord
+
+3) samba between windows and linux
+4) go through all my router setting and make sure I understand them, learning adventure
+5) research nfc to read my sugar numbers on my pc

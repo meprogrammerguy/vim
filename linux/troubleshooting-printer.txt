@@ -62,21 +62,24 @@ settings that fixed it!!! (use OpenVPN)
 nordvpn settings
 Technology: OPENVPN
 Protocol: UDP
-Firewall: enabled
+Firewall: disabled
 Firewall Mark: 0xe1f1
 Routing: enabled
 Analytics: enabled
 Kill Switch: disabled
-Threat Protection Lite: disabled
-Obfuscate: disabled
+Threat Protection Lite: enabled
+Obfuscate: enabled
 Notify: enabled
 Auto-connect: enabled
 IPv6: enabled
-Meshnet: disabled
+Meshnet: enabled
 DNS: disabled
 LAN Discovery: enabled
 Allowlisted ports:
           631 (UDP|TCP)
+         1222 (UDP|TCP)
          5353 (UDP|TCP)
+         7656 (UDP|TCP)
+
 undated cups config to be less restrictive (finally working?)
 

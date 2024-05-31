@@ -1,4 +1,4 @@
-# mods last updated by JRS 5/15/2024
+# mods last updated by JRS 5/30/2024
 
 function auto_pipenv_shell {
     if [ ! -n "${PIPENV_ACTIVE+1}" ]; then
@@ -14,6 +14,7 @@ function cd {
 }
 
 alias prp="pipenv run python3"
+alias gte='gnome-text-editor'
 # mods by JRS, end
 
 # If you come from bash you might have to change your $PATH.
@@ -117,3 +118,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Created by `pipx` on 2024-05-16 13:11:08
+export PATH="$PATH:/home/jsmith/.local/bin"

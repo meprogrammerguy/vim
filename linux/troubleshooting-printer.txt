@@ -71,7 +71,7 @@ Threat Protection Lite: enabled
 Obfuscate: enabled
 Notify: enabled
 Auto-connect: enabled
-IPv6: enabled
+IPv6: disabled
 Meshnet: enabled
 DNS: disabled
 LAN Discovery: enabled

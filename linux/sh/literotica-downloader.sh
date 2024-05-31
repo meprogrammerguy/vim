@@ -6,7 +6,10 @@ series_function() {
         if [[ $url_value =~ $regex ]]
 	then 
     		echo "*** Link is valid, continuing ***"
-    		read -p "directory: " dir_value
+    		wget $url_value -q -E -O .tmp/dirfile.txt
+		dir_default=$(cat .tmp/dirfile.txt | grep -oE '<h1 class="j_bm headline">.*</h1>' | sed 's/<h1 class="j_bm headline">//' | sed 's/<\/h1>//' | sed -e 's/\(.*\)/\L\1/' | sed -e "s/ /-/g")
+		read -e -p "directory: " -i "$dir_default" dir_value
+    		#read -p "directory: " dir_value
         	echo "***"; echo $dir_value
         	cd decode/literotica
         	mkdir $dir_value
@@ -51,26 +54,36 @@ page_function() {
         if [[ $url_value =~ $regex ]]
 	then 
     		echo "*** Link is valid, continuing ***"
-    		read -p "directory: " dir_value
+    		wget $url_value -q -E -O .tmp/dirfile.txt
+    		dir_default=$(cat .tmp/dirfile.txt | grep -oE '<h1 class="j_bm headline j_eQ">.*</h1>' | sed 's/<h1 class="j_bm headline j_eQ">//' | sed 's/<\/h1>//' | sed -e 's/\(.*\)/\L\1/' | sed -e "s/ /-/g")
+    		read -e -p "directory: " -i "$dir_default" dir_value
+    		#read -p "directory: " dir_value
         	echo "***"; echo $dir_value
         	cd decode/literotica
         	mkdir $dir_value
         	cd $dir_value
         	echo "processing file: $url_value"
-        	lynx -dump -listonly $url_value | grep -i "?page=" > .pages.txt
+        	echo "0. $url_value" > .pages.txt
+        	lynx -dump -listonly $url_value | grep -i "?page=" >> .pages.txt
         	sed -i '$s/?page=.*//' .pages.txt
         	page_count=$(wc -l < .pages.txt)
     		num=$(($page_count -1))
-    		last_page=$(sed -n "${num}s/^.*=//p" .pages.txt)
-    		num=$(($page_count -2))
-    		early_page=$(sed -n "${num}s/^.*=//p" .pages.txt)
-    		num1=$(($early_page +1))
-    		num2=$(($last_page -1))
-    		for t in $(seq $num1 $num2);
-		do
-			echo "adding file: $url_value?page=$t"
-    			echo "$url_value?page=$t" >> .pages.txt
-		done    	
+    		if [[ $num > 0 ]]
+		then 
+			sed -i '1d' .pages.txt
+			page_count=$(wc -l < .pages.txt)
+    			num=$(($page_count -1))
+    			last_page=$(sed -n "${num}s/^.*=//p" .pages.txt)
+    			num=$(($page_count -2))
+    			early_page=$(sed -n "${num}s/^.*=//p" .pages.txt)
+    			num1=$(($early_page +1))
+    			num2=$(($last_page -1))
+    			for t in $(seq $num1 $num2);
+			do
+				echo "adding file: $url_value?page=$t"
+    				echo "$url_value?page=$t" >> .pages.txt
+			done 
+		fi
 	else
     		echo "Link not valid"
     		return 1
@@ -96,5 +109,4 @@ while true; do
 	esac
 	done
 done
-clear -x
 echo "done."

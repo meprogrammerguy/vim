@@ -48,7 +48,7 @@ series_function() {
     			early_page=$(sed -n "${num}s/^.*=//p" .pages.txt)
     			num1=$(($early_page +1))
     			num2=$(($last_page -1))
-    			if [[$num2 > 1]]
+    			if [[$num2 -gt 1]]
     			then
     				for t in $(seq $num1 $num2);
 				do
@@ -100,12 +100,12 @@ page_function() {
         	lynx -dump -listonly $url_value | grep -i "?page=" >> .pages.txt
         	sed -i '$s/?page=.*//' .pages.txt
         	page_count=$(wc -l < .pages.txt)
-        	if [[$page_count .eq 0]]
+        	if [[$page_count -eq 0]]
         	then
         		echo "0. $url_value" > .pages.txt
         	fi
     		num=$(($page_count -1))
-    		if [[ $num > 2 ]]
+    		if [[ $num -gt 2 ]]
 		then 
 			page_count=$(wc -l < .pages.txt)
     			num=$(($page_count -1))
@@ -147,7 +147,7 @@ while true; do
  		*) zenity --error --text="what?" && continue
  	esac
 	done > /dev/null 2>&1
-	if [ -z "${opt}" ];
+	if [ -z "${opt}" ]
 	then
 		break
 	fi

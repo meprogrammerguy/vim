@@ -1,4 +1,4 @@
-# mods last updated by JRS 5/30/2024
+# mods last updated by JRS 6/1/2024
 
 function auto_pipenv_shell {
     if [ ! -n "${PIPENV_ACTIVE+1}" ]; then
@@ -14,7 +14,8 @@ function cd {
 }
 
 alias prp="pipenv run python3"
-alias gte='gnome-text-editor'
+alias gte='gnome-text-editor&; disown; exit'
+alias ldown="$HOME/.sh/literotica-zenity.sh &; disown; exit"
 # mods by JRS, end
 
 # If you come from bash you might have to change your $PATH.

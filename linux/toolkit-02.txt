@@ -119,5 +119,7 @@ tunnel to my router so I can access it from my laptop
 sudo -E ssh -i ~/.ssh/id_rsa -4 -p 1222 -L localhost:80:192.168.0.1:80 jsmith@jsmith-win
 (created a script to do this, added it to .sh)
 added FBP plugin to brave (face book purity)
+sudo apt-get install hardinfo
+rebuild vim from scratch
 
 

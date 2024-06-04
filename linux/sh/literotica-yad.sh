@@ -7,10 +7,12 @@ log_file="$HOME/.tmp/literotica-yad.log"
 regex='(https?|ftp|file)://[-[:alnum:]\+&@#/%?=~_|!:,.;]*[-[:alnum:]\+&@#/%=~_|]'
 series_function() {
         url_value=$(yad --entry \
-                --width=800 \
-                --title="enter the series page url" \
-                --text="" \
-                --entry-text "")
+        	--width=800 \
+                --button=OK:0 \
+ 		--title="enter the series page url" \
+		--text="" \
+		--entry-text "")
+        yad_button=$?
         echo "series url: $url_value" >> $log_file
         if [[ $url_value =~ $regex ]]
 	then 
@@ -20,10 +22,17 @@ series_function() {
     		echo "$dir_default" > $HOME/.tmp/decode.txt
     		dir_default=$(perl -Mopen=locale -MHTML::Entities -pe '$_ = decode_entities($_)' $HOME/.tmp/decode.txt)
                 story_name=$(echo "Story name: $dir_default" >> $log_file)
-                dir_value=$(yad --entry \
-                        --title="enter directory" \
-                        --text="" \
-                        --entry-text "$dir_default")
+		dir_value=$(yad --entry \
+	 		--title="enter directory" \
+                        --width=300 \
+                        --button=OK:0 \
+			--text="" \
+			--entry-text "$dir_default")
+                yad_button=$?
+                if [[ -z $dir_value || $yad_button -gt 0 ]]
+                then
+                    return 1
+                fi
                 echo "Directory: $dir_value" >> $log_file
                 dt=$(date '+%d/%m/%Y %H:%M:%S');
                 echo "*** series scraping start: $dt ***" >> $log_file
@@ -58,9 +67,12 @@ series_function() {
 			fi
 		done
 	else
-                echo "Link not valid - exiting" >> $log_file
-                yad --warning --text="$url_value is not a valid url."
-    		return 1
+             if [[  $yad_button -eq 0 ]]
+                then
+    		    echo "Link not valid - exiting" >> $log_file
+                    yad --image dialog-error --title Alert --button=OK:0 --text "not a valid web page?"
+                fi
+     		return 1
 	fi
 	sed -i 's/.* //g' .pages.txt
         echo "*** retrieving files ***" >> $log_file

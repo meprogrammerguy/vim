@@ -14,7 +14,7 @@ function cd {
 }
 
 alias prp="pipenv run python3"
-alias gte='gnome-text-editor&; disown; exit'
+alias gte='gnome-text-editor &; disown; exit'
 alias ldown="$HOME/.sh/literotica-yad.sh &; disown; exit"
 # mods by JRS, end
 

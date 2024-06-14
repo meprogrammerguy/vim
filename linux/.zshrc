@@ -32,5 +32,6 @@ function cd {
 
 alias prp="pipenv run python3"
 alias ldown="$HOME/.sh/literotica-yad.sh &; disown; exit"
-~/.sh/weather.sh
+alias sw="$HOME/.sh/weather.sh"
+sw
 # mods by JRS, end

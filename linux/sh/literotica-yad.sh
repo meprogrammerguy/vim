@@ -2,15 +2,14 @@
 title="literotica downloader"
 prompt="Pick an option:"
 options=("series" "page")
-dir_root="$HOME/decode/literotica"
+dir_root="$HOME/plain/literotica"
 log_file="$HOME/.tmp/literotica-yad.log"
+warning_icon="/usr/share/icons/Papirus-Light/22x22/status/dialog-error.svg"
 regex='(https?|ftp|file)://[-[:alnum:]\+&@#/%?=~_|!:,.;]*[-[:alnum:]\+&@#/%=~_|]'
 series_function() {
         url_value=$(yad --entry \
-        	--width=800 \
                 --button=OK:0 \
- 		--title="enter the series page url" \
-		--text="" \
+ 		--text="enter the series page url" \
 		--entry-text "")
         yad_button=$?
         echo "series url: $url_value" >> $log_file
@@ -23,10 +22,8 @@ series_function() {
     		dir_default=$(perl -Mopen=locale -MHTML::Entities -pe '$_ = decode_entities($_)' $HOME/.tmp/decode.txt)
                 story_name=$(echo "Story name: $dir_default" >> $log_file)
 		dir_value=$(yad --entry \
-	 		--title="enter directory" \
-                        --width=300 \
+	 		--text="enter directory" \
                         --button=OK:0 \
-			--text="" \
 			--entry-text "$dir_default")
                 yad_button=$?
                 if [[ -z $dir_value || $yad_button -gt 0 ]]
@@ -69,8 +66,8 @@ series_function() {
 	else
              if [[  $yad_button -eq 0 ]]
                 then
-    		    echo "Link not valid - exiting" >> $log_file
-                    yad --image dialog-error --title Alert --button=OK:0 --text "not a valid web page?"
+    		        echo "Link not valid - exiting" >> $log_file
+                        notify-send -i $warning_icon "literotica downloader" "not a valid web page"
                 fi
      		return 1
 	fi
@@ -84,10 +81,8 @@ series_function() {
 }
 page_function() {
         url_value=$(yad --entry \
-        	--width=800 \
                 --button=OK:0 \
- 		--title="enter the page url" \
-		--text="" \
+ 		--text="enter the page url" \
 		--entry-text "")
         yad_button=$?
         echo "page url: $url_value" >> $log_file
@@ -100,10 +95,8 @@ page_function() {
     		dir_default=$(perl -Mopen=locale -MHTML::Entities -pe '$_ = decode_entities($_)' $HOME/.tmp/decode.txt)
                 story_name=$(echo "Story name: $dir_default" >> $log_file)
 		dir_value=$(yad --entry \
-	 		--title="enter directory" \
-                        --width=300 \
+	 		--text="enter directory" \
                         --button=OK:0 \
-			--text="" \
 			--entry-text "$dir_default")
                 yad_button=$?
                 if [[ -z $dir_value || $yad_button -gt 0 ]]
@@ -121,6 +114,7 @@ page_function() {
         	lynx -dump -listonly $url_value | grep -i "?page=" >> .pages.txt
         	sed -i '$s/?page=.*//' .pages.txt
         	page_count=$(wc -l < .pages.txt)
+        	echo "page count: $page_count" >> $log_file
         	if [[ $page_count -eq 0 ]]
         	then
         		echo "0. $url_value" > .pages.txt
@@ -144,8 +138,8 @@ page_function() {
 	else
                 if [[  $yad_button -eq 0 ]]
                 then
-    		    echo "Link not valid - exiting" >> $log_file
-                    yad --image dialog-error --title Alert --button=OK:0 --text "not a valid web page?"
+    		    	echo "Link not valid - exiting" >> $log_file
+                	notify-send -i $warning_icon "literotica downloader" "not a valid web page"
                 fi
     		return 1
 	fi
@@ -163,7 +157,7 @@ while true
 do
 	cd $HOME
         echo "current location: $PWD" >> $log_file
-	opt=$(yad --title="$title" --width=300 --no-buttons --text="$prompt" --list  --column="Options" "${options[@]}");
+	opt=$(yad --no-buttons --text="$title" --list  --column="Options" "${options[@]}");
         if [[ $opt == *"s"* ]];
         then
             series_function;
@@ -179,4 +173,4 @@ do
 done
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "*** end $dt ***" >> $log_file
-yad --text-info --width=600 --height=600 --button=EXIT:0 --title="literotica downloader log" --filename=$log_file
+yad --text-info --button=EXIT:0 --text="literotica downloader log" --filename=$log_file
